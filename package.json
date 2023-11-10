@@ -138,7 +138,7 @@
     "@unhead/ssr": "1.7.4",
     "@unhead/vue": "1.7.4",
     "animate.css": "4.1.1",
-    "axios": "1.5.1",
+    "axios": "1.6.0",
     "bootstrap": "5.3.2",
     "cookie-parser": "1.4.6",
     "decache": "4.6.2",
