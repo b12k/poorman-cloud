@@ -1,0 +1,13 @@
+.vscode
+.idea
+
+*.log
+
+.env
+.husky/_/*
+.temp/redis/*
+!.temp/redis/.gitkeep
+.webpack-cache
+
+dist
+node_modules

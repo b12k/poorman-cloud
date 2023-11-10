@@ -1,0 +1,17 @@
+@import '~animate.css/animate.css';
+@import './bootstrap/bootstrap';
+
+html,
+body,
+#app {
+  height: 100%;
+}
+
+body {
+  background-image: url('../assets/images/bg2.webp');
+}
+
+
+.animate-fastest {
+  --animate-duration: 300ms;
+}

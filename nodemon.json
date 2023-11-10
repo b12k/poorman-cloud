@@ -1,0 +1,5 @@
+{
+  "watch": ["src/server", ".env"],
+  "ext": "*",
+  "exec": "node -r @swc-node/register src"
+}

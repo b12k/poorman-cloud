@@ -1,0 +1,46 @@
+version: "3.8"
+
+services:
+  webapp:
+    image: b12k/poorman-cloud:latest
+    ports:
+      - "8080:8080"
+    networks:
+      - public-network
+      - internal-network
+    depends_on:
+      - cache
+    deploy:
+      mode: replicated
+      replicas: 1
+      labels:
+        - "traefik.enable=true"
+        - "traefik.http.routers.b12k-app.rule=Host(`{{YOUR_DOMAIN_HERE}}`)"
+        - "traefik.http.services.b12k-app.loadbalancer.server.port=8080"
+        - "traefik.http.routers.b12k-app.entrypoints=websecure"
+        - "traefik.http.routers.b12k-app.tls=true"
+        - "traefik.http.routers.b12k-app.tls.certresolver=leresolver"
+
+  cache:
+    image: redis:alpine
+    restart: always
+    ports:
+      - "6379:6379"
+    command: redis-server --requirepass 123123123
+    volumes:
+      - redis_data:/data
+    networks:
+      - internal-network
+    deploy:
+      placement:
+        constraints: [ node.role == manager ]
+
+networks:
+  public-network:
+    external: true
+  internal-network:
+    driver: overlay
+    attachable: true
+
+volumes:
+  redis_data:
