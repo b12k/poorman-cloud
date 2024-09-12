@@ -150,7 +150,7 @@
     "lodash": "4.17.21",
     "lru-cache": "10.0.1",
     "nunjucks": "3.2.4",
-    "path-to-regexp": "6.2.1",
+    "path-to-regexp": "6.3.0",
     "pinia": "2.1.7",
     "pino": "8.16.1",
     "pino-http": "8.5.0",
